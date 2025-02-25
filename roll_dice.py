@@ -78,6 +78,8 @@ def roll_ndn(text):
         dice_type = text.split("d")[1]
     
     try:
+        if dice_amount == "":
+            dice_amount = "1"
         dice_amount = int(dice_amount)
     except ValueError as e:
         return f"Invalid number of dice. ({e})"
@@ -114,6 +116,8 @@ def roll_ndn(text):
         return f"Result: {result} (({result_string}) + {dice_modifier})"
 
 def roll(text):
+    text = text.replace(" ", "")
+
     if "d20" in text:
         return f"Rolling {text}\n{(roll_d20(text))}"
     

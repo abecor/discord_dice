@@ -45,7 +45,12 @@ async def on_ready():
 async def r(ctx, text: Option(str, name="roll", description="Roll your dice")): # type: ignore
     '''Rolls dice. "/r roll help" for help.'''
 
-    await ctx.respond(roll_dice.roll(text))
+    print("Input: " + text) # nohup logging
+
+    roll = roll_dice.roll(text)
+    print("Output: " + roll)
+
+    await ctx.respond(roll)
 
 if __name__ == "__main__":
     bot.run(TOKEN) # type: ignore
