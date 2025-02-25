@@ -67,7 +67,7 @@ def roll_ndn(text):
     dice_modifier = 0
 
     dice_amount = text.split("d")[0]
-        
+    
     if "+" in text:
         dice_type = text.split("d")[1]
         
@@ -98,14 +98,20 @@ def roll_ndn(text):
     print(f"Type: {dice_type}")
     print(f"Modifier: {dice_modifier}")
 
-    if  1 <= dice_amount <= 50:
+    if dice_amount < 1:
+        return "That's not enough dice!"
+    elif dice_amount > 20:
+        return "That's too many dice!"
+    elif dice_type <= 2:
+        return "That's an impossible die!"
+    elif dice_modifier < 0:
+        return "You want a negative modifier?"
+    else:
         for i in range(dice_amount):
             roll = rnd.randint(1, dice_type)
             result += roll
             result_string += f"{roll} + "
-    else: 
-        return "That's too many dice!"
-    
+
     result += dice_modifier
     
     result_string = result_string.rstrip(" +")
