@@ -131,7 +131,7 @@ def roll(text):
         return f"Rolling {text}\n{(roll_ndn(text))}"
     
     elif "help" in text:
-        return "/r roll 2d6+3 for damage dice. Can roll dice in this format: <amount>d<type>+<modifier.\n/r roll d20a+4 for D20 with advantage.\n/r roll d20d+4 for D20 with disadvantage."
+        return "/r roll 2d6+3 for damage dice. Can roll dice in this format: <amount>d<type>+<modifier>.\n/r roll d20a+4 for D20 with advantage.\n/r roll d20d+4 for D20 with disadvantage."
     
     else:
         return("Something went wrong...")
