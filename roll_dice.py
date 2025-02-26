@@ -124,6 +124,14 @@ def roll_ndn(text):
 def roll(text):
     text = text.replace(" ", "")
 
+    allowed_chars = set("0123456789ad+")
+    text_list = list(text)
+    for c in text_list:
+        if c not in list(allowed_chars):
+            return "Found a character that is not allowed!"
+    if "dd" in text or "aa" in text or "++" in text:
+        return "Found double characters!"
+    
     if "d20" in text:
         return f"Rolling {text}\n{(roll_d20(text))}"
     
@@ -135,7 +143,3 @@ def roll(text):
     
     else:
         return("Something went wrong...")
-        
-                
-#usr_input = input("Roll ")
-#print(roll(usr_input))
