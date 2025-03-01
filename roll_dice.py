@@ -142,4 +142,4 @@ def roll(text):
         return "/r roll 2d6+3 for damage dice. Can roll dice in this format: <amount>d<type>+<modifier>.\n/r roll d20a+4 for D20 with advantage.\n/r roll d20d+4 for D20 with disadvantage."
     
     else:
-        return("Something went wrong...")
+        return("Unexpected input...")
