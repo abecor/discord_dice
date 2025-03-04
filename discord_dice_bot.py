@@ -7,7 +7,7 @@ import os
 import roll_dice
 
 
-#load .env with token, guild and channel IDS
+#load .env with token, guild and channel IDs
 
 load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
