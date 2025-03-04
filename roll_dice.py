@@ -126,10 +126,14 @@ def roll(text):
 
     allowed_chars = set("0123456789ad+")
     text_list = list(text)
-    if not "help" in text:
+
+    if "help" in text:
+        return "/r roll 2d6+3 for damage dice. Can roll dice in this format: <amount>d<type>+<modifier>.\n/r roll d20a+4 for D20 with advantage.\n/r roll d20d+4 for D20 with disadvantage.\n !late for lategif"
+    else:
         for c in text_list:
             if c not in list(allowed_chars):
                 return "Found a character that is not allowed!"
+    
     if "dd" in text or "aa" in text or "++" in text:
         return "Found double characters!"
     
@@ -139,8 +143,7 @@ def roll(text):
     elif "d" in text:
         return f"Rolling {text}\n{(roll_ndn(text))}"
     
-    elif "help" in text:
-        return "/r roll 2d6+3 for damage dice. Can roll dice in this format: <amount>d<type>+<modifier>.\n/r roll d20a+4 for D20 with advantage.\n/r roll d20d+4 for D20 with disadvantage.\n !late for lategif"
+    
     
     else:
         return("Unexpected input...")
