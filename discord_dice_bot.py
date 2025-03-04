@@ -5,6 +5,7 @@ from discord import Option
 from dotenv import load_dotenv
 import os
 import roll_dice
+from lategif import get_lategif
 
 
 #load .env with token, guild and channel IDs
@@ -22,7 +23,9 @@ intents = discord.Intents.default()
 intents.messages = True
 intents.message_content = True
 
-bot = commands.Bot(intents=intents)
+bot = commands.Bot(
+    intents=intents,
+    command_prefix="!")
 
 
 @bot.event
@@ -52,6 +55,14 @@ async def on_ready():
             print(f"")
     
     print("\n")
+
+@bot.command()
+async def late(ctx: commands.Context):
+
+    print("==============")
+    link = get_lategif()
+    print(link)
+    await ctx.send(link)
 
 
 @bot.slash_command(guild_ids=guild_ids)
